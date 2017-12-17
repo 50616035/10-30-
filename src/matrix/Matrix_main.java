@@ -16,7 +16,7 @@ public class Matrix_main {
         Matrix_lib mlib= new Matrix_lib();
         System.out.println("Product = "+ Arrays.deepToString(mlib.getProduct(a,b)));
         System.out.println("Cofactor = "+(mlib.getCofactor(c)));
-        System.out.println("Inverse = "+ Arrays.deepToString(mlib.getInverse(c)));
+        System.out.println("Inverse = "+ Arrays.deepToString(mlib.getInverse(d)));
         System.out.println("Solution = "+ Arrays.toString(mlib.getSolution(d, e)));
         
         

@@ -11,7 +11,9 @@ public class Matrix_lib {
 		double t[][] = this.getTranspose(b);
 		for(int i = 0; i < a.length; i++) {
 			for(int j = 0; j < b[0].length; j++) {
+				//System.out.println(" getProduct= "+a[i] +t[j]);
 				answer[i][j] = this.getInnerProduct(a[i], t[j]);
+				 
 			}
 		}
 		return answer;
@@ -21,10 +23,10 @@ public class Matrix_lib {
 		double answer = 0;
 		for(int i = 0; i < a.length; i++) {
 			answer += a[i] * b[i];
+			System.out.println(" getInnerProduct = "+a[i]+b[i]+i);
 		}
 		return answer;
 	}
-	
 	public double getScalar(double a[]) {
 		double answer = 0;
 		for(int i = 0; i < a.length; i++) {
@@ -43,10 +45,12 @@ public class Matrix_lib {
 		}
 		return t;
 	}
+
 	
 	//n次正方行列の行列式(余因子展開利用)
-	public double getCofactor(double [][]a) {
+	public double getCofactor(double [][]a) {;
 		double cofactor = 0;
+		
 		if(a.length == 2) {
 			cofactor = a[0][0] * a[1][1] - a[0][1] * a[1][0];
 		}
@@ -102,16 +106,15 @@ public class Matrix_lib {
 		return answer;
 	}
 	
-	public double[] getSolution(double [][]a, double []b) {
+	public double[] getSolution(double [][]a, double[] b) {
 		double answer[] = new double[a.length];
 		double tmp[][] = this.getInverse(a);
-		double t[][] = this.getTranspose(tmp);
-		for(int i = 0; i < b.length; i++) {
-			for(int j = 0;j<a.length;j++) {
-			answer[j] = answer[j]+b[i]*t[i][j];
-			}
+
+		for(int i = 0; i < a.length; i++) {
+				answer[i] = this.getInnerProduct(tmp[i], b);
 		}
 		return answer;
 	}
+
 	
 }
